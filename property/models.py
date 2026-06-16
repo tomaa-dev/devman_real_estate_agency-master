@@ -54,7 +54,6 @@ class Flat(models.Model):
         db_index=True)
     liked_by = models.ManyToManyField(
         User,
-        null=True,
         blank=True,
         related_name='liked_flats',
         verbose_name='Кто лайкнул'
@@ -78,7 +77,7 @@ class Complaint(models.Model):
     complaint = models.TextField('Текст жалобы') 
 
     def __str__(self):
-        return f'Жалоба пользователя {self.user} на {self.flat}'
+        return f'Жалоба пользователя {self.complaint_author} на {self.flat}'
 
 
 class Owner(models.Model):

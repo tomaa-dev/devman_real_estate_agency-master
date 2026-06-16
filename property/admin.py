@@ -10,6 +10,7 @@ class OwnershipInline(admin.TabularInline):
     model = Owner.owner_flats.through
     raw_id_fields = ('owner',)
 
+
 class FlatAdmin(admin.ModelAdmin):
     search_fields = (
         'town', 
@@ -36,7 +37,7 @@ class FlatAdmin(admin.ModelAdmin):
 class ComplaintAdmin(admin.ModelAdmin):
     raw_id_fields = (
         'flat', 
-        'user'
+        'complaint_author'
     )
 
 
