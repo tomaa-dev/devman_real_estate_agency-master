@@ -64,7 +64,7 @@ class Flat(models.Model):
 
 
 class Complaint(models.Model):
-    complaint_author = models.ForeignKey(
+    author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name='authored_complaints',
@@ -73,13 +73,13 @@ class Complaint(models.Model):
     flat = models.ForeignKey(
         Flat, 
         on_delete=models.CASCADE,
-        related_name='flat_complaints',
+        related_name='complaints',
         verbose_name='Квартира, на которую пожаловались'
     ) 
     complaint = models.TextField('Текст жалобы') 
 
     def __str__(self):
-        return f'Жалоба пользователя {self.complaint_author} на {self.flat}'
+        return f'Жалоба пользователя {self.author} на {self.flat}'
 
 
 class Owner(models.Model):
